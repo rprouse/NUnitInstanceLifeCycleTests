@@ -1,14 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp31</TargetFramework>
-
-    <IsPackable>false</IsPackable>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <StartupObject>NUnitInstanceLifeCycleTests.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="NUnit.Framework">
-      <HintPath>C:\Src\NUnit\nunit\bin\Release\netstandard2.0\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>C:\Src\NUnit\nunit\bin\Debug\netstandard2.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunitlite">
+      <HintPath>C:\Src\NUnit\nunit\bin\Debug\netstandard2.0\nunitlite.dll</HintPath>
     </Reference>
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
