@@ -7,43 +7,39 @@ namespace NUnitInstanceLifeCycleTests
     [Parallelizable(ParallelScope.All)]
     public class ParallelConstructorTests
     {
-        static ObjectIDGenerator generator = new ObjectIDGenerator();
-        int i = 0;
+        int constructorCount = 0;
+        int setupCount = 0;
 
         public ParallelConstructorTests()
         {
-            OutputReferenceId("Constructor");
-            i++;
+            constructorCount++;
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
+            setupCount++;
         }
 
         [Test]
-        public void TestOne()
+        public void EnsureParallelTestsRunInNewInstance1()
         {
-            OutputReferenceId("TestOne");
-            Assert.That(i, Is.EqualTo(1));
-            i++;
+            Assert.That(constructorCount, Is.EqualTo(1));
+            Assert.That(setupCount, Is.EqualTo(1));
         }
 
         [Test]
-        public void TestTwo()
+        public void EnsureParallelTestsRunInNewInstance2()
         {
-            OutputReferenceId("TestTwo");
-            Assert.That(i, Is.EqualTo(1));
-            i++;
+            Assert.That(constructorCount, Is.EqualTo(1));
+            Assert.That(setupCount, Is.EqualTo(1));
         }
 
         [Test]
-        public void TestThree()
+        public void EnsureParallelTestsRunInNewInstance3()
         {
-            OutputReferenceId("TestThree");
-            Assert.That(i, Is.EqualTo(1));
-            i++;
-        }
-
-        private void OutputReferenceId(string location)
-        {
-            long id = generator.GetId(this, out bool first);
-            TestContext.WriteLine($"{location}: {id} is first <{first}>");
+            Assert.That(constructorCount, Is.EqualTo(1));
+            Assert.That(setupCount, Is.EqualTo(1));
         }
     }
 }
