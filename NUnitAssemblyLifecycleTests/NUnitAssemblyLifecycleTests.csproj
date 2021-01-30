@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>C:\Src\NUnit\nunit\bin\Debug\netstandard2.0\nunit.framework.dll</HintPath>
+    </Reference>
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+  </ItemGroup>
+
+</Project>
